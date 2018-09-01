@@ -8,6 +8,8 @@ print('''1)Only Source Code       2)Find for specific tag
                                      output:/action_page.php)''')
 print()
 
+print('ok')
+
 option = input("Select for option >>>")
 url_input_first = input("Is your site 1)HTTP or 2)HTTPS >>>")
 url_input = input("Please enter your website (ex:domain.com) >>>")
