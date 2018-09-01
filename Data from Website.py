@@ -4,8 +4,8 @@ import requests as rq
 print("This tool for getting data from any website")
 print()
 print('''1)Only Source Code       2)Find for specific tag
- 3) Find for tag's element text (ex: href="/action_page.php"
-                                    output:/action_page.php)''')
+3) Find for tag's element text (ex: href="/action_page.php"
+                                     output:/action_page.php)''')
 print()
 
 option = input("Select for option >>>")
@@ -19,13 +19,11 @@ def http():
     myurl.content
     soup = BeautifulSoup(myurl.content)
     print(soup.prettify())
-    for link in linkler:
-      print(link)
   elif (option == "2"):
     tag_name = input("Please Enter Tag (ex: h1, p, a):")
     myurl.content
-    soup = BeautifulSoup
-    soup.find_all(tag_name)
+    soup = BeautifulSoup(myurl.content)
+    linkler = soup.find_all(tag_name)
     for link in linkler:
       print(link)
   elif (option == "3"):
@@ -36,7 +34,6 @@ def http():
     for link in linkler:
       soup = BeautifulSoup(myurl.content)
       print(link.get(element))
-    return
 
 def https():
   myurl = rq.get("https://" + url_input)
@@ -44,13 +41,11 @@ def https():
     myurl.content
     soup = BeautifulSoup(myurl.content)
     print(soup.prettify())
-    for link in linkler:
-      print(link)
   elif (option == "2"):
     tag_name = input("Please Enter Tag (ex: h1, p, a):")
     myurl.content
-    soup = BeautifulSoup
-    soup.find_all(tag_name)
+    soup = BeautifulSoup(myurl.content)
+    linkler = soup.find_all(tag_name)
     for link in linkler:
       print(link)
   elif (option == "3"):
@@ -61,17 +56,13 @@ def https():
     linkler = soup.find_all(tag_name_forelement)
     for link in linkler:
       print(link.get(element))
-    return
 
 def error():
   print("An Error Occured. Please try again!!!")
-  return
-
-
 
 if (url_input_first == "1"):
   http()
-elif (url_input_first == "2"):
+if (url_input_first == "2"):
   https()
 else:
-  error()
+  print()
